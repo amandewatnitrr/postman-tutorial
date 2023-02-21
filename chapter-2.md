@@ -15,6 +15,7 @@
 <img width="50%" src="./imgs/api4.png"/>
 
 <br>
+
 - Name your workspace "Postman API Fundamentals Student Expert" and set the visibility to Public (or Personal if you cannot make a Public workspace on your team). Then click "Create Workspace"
 <br><br>
 
