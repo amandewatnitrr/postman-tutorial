@@ -156,6 +156,92 @@ The request is sent over a network to some server. In our case, we made a reques
 
 The server interpreted the request (GET /books) and sent the appropriate response over the network back to the Postman client: a list of books.
 
+## Query Parameters
+
+- Remember that the minimum ingredients you need to make a request are:
+
+  - a request method (GET/POST/PUT/PATCH/DELETE, etc)
+  - a request URL
+
+Some APIs allow you to refine your request further with key-value pairs called query parameters.
+
+Query parameters are added to the end of the path. They start with a question mark ?, followed by the key value pairs in the format: <key>=<value>. For example, this request might fetch all photos that have landscape orientation:
+
+GET https://some-api.com/photos?orientation=landscape
+
+If there are multiple query parameters, each is separated by an ampersand &. Below, two query parameters to specify the orientation and size of photos to be returned:
+
+GET https://some-api.com/photos?orientation=landscape&size=500x400
+
+Let's filter the library catalog to get all the fiction books. We can recycle the first request since we are hitting the same GET /books endpoint.
+
+- In Postman inside the  Postman Library API v2 Collection you made, hover over the "get books" request, click the three dots icon that appears, then select Duplicate to create a copy of the request.
+
+- Rename this second request from the default "get books Copy" to "get fiction books". You can hover on the collection name in the right pane and click the edit icon that appears.
+
+![](imgs/api11.gif)
+
+<br>
+
+-  Using the Params tab, add a query parameter with key genre and value fiction to the "get fiction books" request. Notice how Postman syncs the request URL in real time, adding the question mark ? automatically to mark the start of query parameters!
+
+<br>
+
+![](imgs/api12.png)
+
+- Save and Send your request.
+
+### Multi Query Parameters
+
+- In the same "get fiction books" request, in the Params tab add a second query parameter with key checkedOut and value false
+
+![](imgs/api13.png)
+
+- Save and Send your request.
+
+## Path Parameters
+
+- Another way of passing request data to an API is via path parameters. A path parameter (or "path variable") is a dynamic section of a path, and is often used for IDs and entity names such as usernames.
+
+### Path parameter syntax
+
+- Path parameters come immediately after a slash in the path. For example, the GitHub API allows you to search for GitHub users by providing a username in the path in place of {username} below: 
+
+> GET https://api.github.com/users/{username}
+
+- Making this API call with a value for {username} will fetch data about that user:
+
+> GET https://api.github.com/users/postmanlabs
+
+- You can have multiple path parameters in a single request, such as this endpoint for getting a user's GitHub code repository:
+
+> GET https://api.github.com/repos/{owner}/{repoName}
+
+- For example, to get information about the newman code repository from postmanlabs:
+
+> GET https://api.github.com/repos/postmanlabs/newman
+
+- Note that some API documentation uses colon syntax to represent a wildcard in the path, like /users/:username, while some use curly braces like /users/{username}. They both mean the same thing: that part of the path is dynamic!
+
+## Get Request by ID
+
+- Hover on your Postman Library API v2 Collection, click the three dots icon and select Add request. Name your new request "get book by id"
+
+<br>
+
+![](imgs/api14.png)
+
+<br>
+
+- Make sure the request method is set to GET, and paste in this endpoint as the request URL: https://library-api.postmanlabs.com/books/:id
+
+> Postman automatically adds a "Path Variables" editor in the Params tab of the request for any path parameters in the request URL prefixed with a colon :
+
+![](imgs/api15.png)
+
+<br>
+
+- Save and Send your request.
 
 </strong>
 </p>
