@@ -3,6 +3,12 @@
 
 # Getting started with Postman `continued...`
 
+<br>
+
+![](imgs/api31.gif)
+
+<br>
+
 ## Variables in Postman
 
 - Postman allows you to save values as variables so that you can:  
